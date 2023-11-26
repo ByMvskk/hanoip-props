@@ -1,0 +1,199 @@
+##
+# Motorola Props
+# By @Mvzk
+##
+
+###
+#-#
+###
+
+###
+# begin product/etc/build.prop
+###
+
+# begin common build properties
+ro.product.product.brand=motorola
+ro.product.product.device=hanoip
+ro.product.product.manufacturer=motorola
+ro.product.product.model=moto g(60)
+ro.product.product.name=hanoip
+ro.product.build.date=1 Tue Jul 25 12:21:17 CDT 2023
+ro.product.build.date.utc=1669240717
+ro.product.build.id=S2RI32.32-20-9-9-2
+ro.product.build.tags=release-keys
+ro.product.build.type=user
+ro.product.build.version.incremental=9325679
+ro.product.build.version.release=13
+ro.product.build.version.release_or_codename=13
+ro.product.build.version.sdk=33
+# end common build properties
+
+# begin PRODUCT_PRODUCT_PROPERTIES
+ro.support_one_handed_mode=true
+ro.charger.enable_suspend=true
+ro.opa.eligible_device=true
+ro.com.google.ime.bs_theme=true
+ro.com.google.ime.theme_id=5
+ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
+# end PRODUCT_PRODUCT_PROPERTIES
+
+###
+# end product/etc/build.prop
+###
+
+###
+#-#
+###
+
+###
+# begin vendor/build.prop
+###
+
+# begin common build properties
+ro.product.vendor.brand=motorola
+ro.product.vendor.device=hanoip
+ro.product.vendor.manufacturer=Motorola
+ro.product.vendor.model=moto g(60)
+ro.product.vendor.name=hanoip
+ro.vendor.build.date=1 Tue Jul 25 12:21:17 CDT 2023
+ro.vendor.build.date.utc=1669240717
+ro.vendor.build.id=S2RI32.32-20-9-9-2
+ro.vendor.build.tags=release-keys
+ro.vendor.build.type=user
+ro.vendor.build.version.incremental=9325679
+ro.vendor.build.version.release=13
+ro.vendor.build.version.release_or_codename=13
+ro.vendor.build.version.sdk=33
+# end common build properties
+
+# begin ADDITIONAL_VENDOR_PROPERTIES
+ro.vendor.build.security_patch=2023-07-01
+# end ADDITIONAL_VENDOR_PROPERTIES
+
+# begin BOOTIMAGE_build_prop to_system_propERTIES
+ro.bootimage.build.date=1 Tue Jul 25 12:21:17 CDT 2023
+ro.bootimage.build.date.utc=1669240717
+# end BOOTIMAGE_build_prop to_system_propERTIES
+
+# begin PRODUCT_PROPERTY_OVERRIDES
+persist.rcs.supported=1
+persist.sysui.monet=true
+# end PRODUCT_PROPERTY_OVERRIDES
+
+###
+# end vendor/build.prop
+###
+
+###
+#-#
+###
+
+###
+# begin vendor/odm/etc/build.prop
+###
+
+# begin common build properties
+ro.product.odm.brand=motorola
+ro.product.odm.device=hanoip
+ro.product.odm.manufacturer=Motorola
+ro.product.odm.model=moto g(60)
+ro.product.odm.name=hanoip
+ro.odm.build.date=1 Tue Jul 25 12:21:17 CDT 2023
+ro.odm.build.date.utc=1669240717
+ro.odm.build.id=S2RI32.32-20-9-9-2
+ro.odm.build.tags=release-keys
+ro.odm.build.type=user
+ro.odm.build.version.incremental=9325679
+ro.odm.build.version.release=13
+ro.odm.build.version.release_or_codename=13
+ro.odm.build.version.sdk=33
+# end common build properties
+
+###
+# end vendor/odm/etc/build.prop
+###
+
+###
+#-#
+###
+
+###
+# begin system/system/build.prop
+###
+
+# begin common build properties
+ro.product.system.brand=motorola
+ro.product.system.device=generic
+ro.product.system.manufacturer=motorola
+ro.product.system.model=mainline
+ro.product.system.name=mainline
+ro.system.build.date=1 Tue Jul 25 12:21:17 CDT 2023
+ro.system.build.date.utc=1669240717
+ro.system.build.id=S2RI32.32-20-9-9-2
+ro.system.build.tags=release-keys
+ro.system.build.type=user
+ro.system.build.version.incremental=9325679
+ro.system.build.version.release=13
+ro.system.build.version.release_or_codename=13
+ro.system.build.version.sdk=3
+# end common build properties
+
+# begin build properties
+ro.build.id=S2RI32.32-20-9-9-2
+ro.build.display.id=S2RI32.32-20-9-9-2
+ro.build.version.incremental=9325679
+ro.build.version.sdk=33
+ro.build.version.release=13
+ro.build.version.release_or_codename=13
+ro.build.version.security_patch=2023-07-01
+ro.build.date=1 Tue Jul 25 12:21:17 CDT 2023
+ro.build.date.utc=1669240717
+ro.build.type=user
+ro.build.user=android-build
+ro.build.host=abfarm-release-rbe-64-2004-0018
+ro.build.tags=release-keys
+ro.build.flavor=hanoip-user
+ro.build.product=hanoip
+ro.build.description=hanoip_retailnq 13 S2RI32.32-20-9-9-2 9325679 release-keys
+# end build properties
+
+# begin extra's from /system/build.prop
+ro.product.brand=hanoip
+ro.product.device=hanoip
+ro.product.manufacturer=motorola
+ro.product.model=moto g(60)
+ro.product.name=hanoip_retailnq
+# end extra's from /system/build.prop
+
+###
+# end system/system/build.prop
+###
+
+###
+#-#
+###
+
+###
+# begin system_ext/etc/build.prop
+###
+
+# begin common build properties
+ro.product.system_ext.brand=motorola
+ro.product.system_ext.device=hanoip
+ro.product.system_ext.manufacturer=motorola
+ro.product.system_ext.model=moto g(60)
+ro.product.system_ext.name=hanoip
+ro.system_ext.build.date=1 Tue Jul 25 12:21:17 CDT 2023
+ro.system_ext.build.date.utc=1669240717
+ro.system_ext.build.id=S2RI32.32-20-9-9-2
+ro.system_ext.build.tags=release-keys
+ro.system_ext.build.type=user
+ro.system_ext.build.version.incremental=9325679
+ro.system_ext.build.version.release=13
+ro.system_ext.build.version.release_or_codename=13
+ro.system_ext.build.version.sdk=33
+# end common build properties
+
+###
+# end system_ext/etc/build.prop
+###
