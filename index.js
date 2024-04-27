@@ -638,13 +638,12 @@ customEmoji.on("input", (e) => {
 });
 customStatusHelp.click(() => {
     modal("Help", `
-    <strong>lyrics status gg</strong>Esta opción te permite personalizar tu estado como quieras.<br>
-    Para mostrar texto como letra o marca de tiempo, debes colocarlo en {} brackets.<br>Lista de todas las variables que puede utilizar (el atributo superior/inferior significa texto en mayúsculas/minúsculas):<br>
-    {lyrics}, {lyrics_upper}, {lyrics_lower}, {lyrics_letters_only}, {lyrics_upper_letters_only}, {lyrics_lower_letters_only} - Estas variables contienen letras sincronizadas actuales.
-    <strong>letters_only</strong> atributo significa que no hay puntuaciones como puntos y comas.<br>
-    {song_name}, {song_name_upper}, {song_name_lower}, {song_name_cropped}, {song_name_upper_cropped}, {song_name_lower_cropped} - Estas variables contienen el nombre de la canción actual.<strong>cropped</strong>  atributo significa solo el nombre de la canción sin ningún otro texto. <br>
-    {song_author}, {song_author_upper}, {song_author_lower} - varibales de el autor pibe.<br><br>
-    <strong>Note: te aviso que esta mierda se recorta solo por los limites de discord dx</strong>
+    <strong>Custom status</strong> option allows you to customise your status as you want.<br>
+    To display text such as lyrics or timestamp you need to put it in {} brackets.<br>List of all variables you can use (upper/lower attribute means uppercased/lowercased text):<br>
+    {lyrics}, {lyrics_upper}, {lyrics_lower}, {lyrics_letters_only}, {lyrics_upper_letters_only}, {lyrics_lower_letters_only} - These variables contains current synchronized lyrics. <strong>letters_only</strong> attribute means there's no punctuations like dots and commas.<br>
+    {song_name}, {song_name_upper}, {song_name_lower}, {song_name_cropped}, {song_name_upper_cropped}, {song_name_lower_cropped} - These variables contain current song name. <strong>cropped</strong> attribute means only song name without any other text.<br>
+    {song_author}, {song_author_upper}, {song_author_lower} - These variables contains song author.<br><br>
+    <strong>Note: Lyrics Status will automatically crop your status if it's too long. Discord not allowing statuses with length over 128 symbols.</strong>
     `);
 });
 customStatus.on("input", (e) => {
@@ -676,9 +675,9 @@ sendTimeOffset.on("input", (e) => {
     saveSettings();
 });
 sendTimeOffsetHelp.click(() => modal("Help", `
-TEste parámetro define el intervalo de tiempo antes de que cambie el estado (en milisegundos).<br>
-El valor predeterminado es <strong>500</strong>.No se recomienda cambiar este parámetro sin ningún motivo.<br><br>
-<strong>Nota: Se ignorarán los valores superiores a 2000.</strong>
+This parameter defines the offset for time before the status changes (in milliseconds).<br>
+Default value is <strong>500</strong>. It is not recommended to change this parameter without a reason.<br><br>
+<strong>Note: Value bigger than 2000 will be ignored.</strong>
 `));
 autooffset.change(() => {
     let value = autooffset.val();
@@ -693,12 +692,12 @@ autooffset.change(() => {
     saveSettings();
 });
 autooffsetHelp.click(() => modal("Help", `
-Esta opción utiliza el tiempo que tardaron las solicitudes en cambiar de estado para establecer su compensación.<br>
-Puede resultarle útil si tiene una velocidad de conexión baja.<br>
-Si tiene una velocidad de conexión estable (no depende de si es rápida o no), puede usar cualquiera de estos modos.<br>
-Si su velocidad de conexión es "alta", no se recomienda utilizar el modo <strong>Promedio de 30 solicitudes</strong>.<br>
-Puede probar cada modo y ver cuál es más adecuado para usted.<br><br>
-<strong>Nota: esta función es experimental y puede eliminarse o modificarse en el futuro.</strong>
+This option uses time that requests took to change status to set their offset.<br>
+It may help you if you have low connection speed.<br>
+If you have stable (not depends on fast or no) connection speed you can use any of these modes.<br>
+If you have 'jumpy' connection speed it is not recommended to use <strong>Average of 30 requests</strong> mode.<br>
+You can test each mode and see what's more suitable for you.<br><br>
+<strong>Note: This function is experimental and may be removed/changed in the future.</strong>
 `));
 opacityRangeSlider.on("input", () => {
     let value = opacityRangeSlider.val() / 100;
@@ -890,11 +889,11 @@ function updatePlaybackState() {
                 debugPlayback.html(`${Date.now() - start}ms`);
 
                 if(playbackState.trackId !== d.item.id) {
-                    debugLyrics.text("buscando nose");
-                    debugRequest.text("buscando nose");
-                    debugRequest2.text("buscando nose");
-                    debugRequest10.text("buscando nose");
-                    debugRequest30.text("buscando nose");
+                    debugLyrics.text("Fetching...");
+                    debugRequest.text("Fetching...");
+                    debugRequest2.text("Fetching...");
+                    debugRequest10.text("Fetching...");
+                    debugRequest30.text("Fetching...");
 
                     playbackState.trackName = d.item.name;
                     playbackState.trackAuthor = d.item.artists[0].name;
@@ -938,8 +937,8 @@ function updatePlaybackState() {
                             404: () => {
                                 playbackState.hasLyrics = false;
 
-                                addLog(`Spotify no tiene las letras de esta cancion (${playbackState.trackName}). el status no se tocara`, "warning");
-                                changeStatusRequest(settings.token, "/sex");
+                                addLog(`Spotify doesn't have lyrics for this song (${playbackState.trackName}). Status won't change.`, "warning");
+                                changeStatusRequest(settings.token, "");
                             }
                         }
                     });
@@ -948,8 +947,8 @@ function updatePlaybackState() {
                 playbackState.isPlaying = d.is_playing;
             },
             401: () => { refreshAccessToken(); },
-            404: () => { addLog("error nose xd target=\"_blank\">this</a>. <strong class=\"error\">Error code: 404</strong>", "error"); errorCount++ },
-            502: () => { addLog("error tu puta madre target=\"_blank\">this</a>. <strong class=\"error\">Error code: 502</strong>", "error"); errorCount++ }
+            404: () => { addLog("Got unexpected error! For more details please read <a style=\"color: #ff0000;\" href=\"https://github.com/OvalQuilter/lyrics-status#error-list\" target=\"_blank\">this</a>. <strong class=\"error\">Error code: 404</strong>", "error"); errorCount++ },
+            502: () => { addLog("Got unexpected error! For more details please read <a style=\"color: #ff0000;\" href=\"https://github.com/OvalQuilter/lyrics-status#error-list\" target=\"_blank\">this</a>. <strong class=\"error\">Error code: 502</strong>", "error"); errorCount++ }
         }
     });
 }
